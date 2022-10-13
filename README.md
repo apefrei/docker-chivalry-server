@@ -4,8 +4,8 @@
 
 * create docker volume on host 
 * add liberal r/w at least for docker user
-* docker build -t chivalry_server .
-* docker run -ti -v /opt/chivalry:/opt/chivalry -p 0.0.0.0:8000:8000/udp -p 0.0.0.0:27015:27015/udp --name chivalry_server-instance-1 -t chivalry_server
+* docker build -t apetomate/chivalry-server .
+* docker run -ti -v /data/chivalry-server:/opt/chivalry -p 192.168.88.45:8000:8000/udp -p 192.168.88.45:27015:27015/udp --name chivalry-server -t apetomate/chivalry-server
 
 ## Features / tested with
 * works with mod LSMOD, Blackknight, giantslayers
