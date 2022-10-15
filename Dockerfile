@@ -1,5 +1,6 @@
 FROM ubuntu:xenial
 MAINTAINER apetomate
+ENV CONFIGURL "https://raw.githubusercontent.com/apefrei/butterlan-gameserver-configs/main/chivalry/PCServer-UDKGame.ini"
 
 ################################################################################
 ## exposing 8000 and 27015 on udp
@@ -30,7 +31,7 @@ RUN mkdir -p /opt/chivalry && \
 ## copy run script
 COPY run.sh /usr/local/bin/run-chivalry
 ## copy game.ini template
-RUN wget https://raw.githubusercontent.com/apefrei/butterlan-gameserver-configs/main/chivalry/PCServer-UDKGame.ini -O /usr/local/bin/PCServer-UDKGame.ini
+RUN wget ${CONFIGURL} -O /usr/local/bin/PCServer-UDKGame.ini
 #COPY PCServer-UDKGame.ini /usr/local/bin/PCServer-UDKGame.ini
 
 ################################################################################
