@@ -25,7 +25,7 @@ RUN useradd -r -m -u 1000 steam
 ################################################################################
 ## volume
 RUN mkdir -p /opt/chivalry/config \
-    && mkdir -p /opt/chivalry/run \
+    && mkdir -p /opt/chivalry/run
 ## copy run script
 COPY run.sh /opt/chivalry/run
 ## download config from URL
