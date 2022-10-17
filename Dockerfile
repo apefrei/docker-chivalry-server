@@ -23,16 +23,15 @@ RUN apt-get clean autoclean purge && \
 RUN useradd -r -m -u 1000 steam
 
 ################################################################################
+## volume
+RUN mkdir -p /opt/chivalry/config \
+    && mkdir -p /opt/chivalry/run \
 ## copy run script
 COPY run.sh /opt/chivalry/run
 ## download config from URL
 RUN curl ${CONFIGURL} --output /opt/chivalry/config/PCServer-UDKGame.ini
 
-################################################################################
-## volume
-RUN mkdir -p /opt/chivalry/config \
-    && mkdir -p /opt/chivalry/run \
-    && chown root -R /opt/chivalry \
+RUN chown root -R /opt/chivalry \
     && chmod 755 -R /opt/chivalry
 
 ################################################################################
