@@ -1,5 +1,5 @@
 FROM ubuntu:xenial
-MAINTAINER apetomate
+
 ENV CONFIGURL "https://raw.githubusercontent.com/apefrei/butterlan-gameserver-configs/main/chivalry/PCServer-UDKGame.ini"
 
 ################################################################################
@@ -23,9 +23,9 @@ RUN useradd -r -m -u 1000 steam
 
 ################################################################################
 ## volume
-RUN mkdir -p /opt/chivalry && \
-    chown root -R /opt/chivalry && \
-    chmod 755 -R /opt/chivalry
+RUN mkdir -p /opt/chivalry \
+    && chown root -R /opt/chivalry \
+    && chmod 755 -R /opt/chivalry
 
 ################################################################################
 ## copy run script
