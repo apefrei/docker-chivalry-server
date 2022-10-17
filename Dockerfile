@@ -1,6 +1,9 @@
 FROM ubuntu:xenial
 
 ENV CONFIGURL "https://raw.githubusercontent.com/apefrei/butterlan-gameserver-configs/main/chivalry/PCServer-UDKGame.ini"
+ENV STARTMAP "AOCTD-Moor_P"
+ENV GAMEPORT "8000"
+ENV QUERYPORT "27015"
 SHELL ["/bin/bash", "-c"]
 
 ################################################################################
