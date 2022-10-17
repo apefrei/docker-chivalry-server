@@ -25,7 +25,7 @@ function install-chivalry {
 # we check if chivalry is installed or need an update
 install-chivalry
 
-[ ! -d "/opt/chivalry/config" ] && mkdir -p "/opt/chivalry/config"
+#[ ! -d "/opt/chivalry/config" ] && mkdir -p "/opt/chivalry/config"
 
 cd "/opt/chivalry/config"
 [ ! -L PCServer-UDKGame.ini ] && ln -s ../server/UDKGame/Config/PCServer-UDKGame.ini PCServer-UDKGame.ini
@@ -35,7 +35,7 @@ cd "/opt/chivalry/config"
 [ ! -L "/home/steam/.local/share/TornBanner/Chivalry/UDKGame" ] && mkdir -p "/home/steam/.local/share/TornBanner/Chivalry" && ln -s /opt/chivalry/server/UDKGame /home/steam/.local/share/TornBanner/Chivalry/UDKGame
 
 # use the predefined ini in order to configure the server
-cp /usr/local/bin/PCServer-UDKGame.ini /opt/chivalry/server/UDKGame/Config/PCServer-UDKGame.ini
+cp /opt/chivalry/config/PCServer-UDKGame.ini /opt/chivalry/server/UDKGame/Config/PCServer-UDKGame.ini
 
 #add libraries to env
 export LD_LIBRARY_PATH=/opt/chivalry/server/linux64:/opt/chivalry/server/Binaries/Linux/lib

@@ -23,18 +23,18 @@ RUN useradd -r -m -u 1000 steam
 
 ################################################################################
 ## volume
-RUN mkdir -p /opt/chivalry \
+RUN mkdir -p /opt/chivalry/config \
+    mkdir -p /opt/chivalry/run \
     && chown root -R /opt/chivalry \
     && chmod 755 -R /opt/chivalry
 
 ################################################################################
 ## copy run script
-COPY run.sh /usr/local/bin/run-chivalry
-## copy game.ini template
-RUN curl ${CONFIGURL} --output /usr/local/bin/PCServer-UDKGame.ini
-#COPY PCServer-UDKGame.ini /usr/local/bin/PCServer-UDKGame.ini
+COPY run.sh /opt/chivalry/run
+## download config from URL
+RUN curl ${CONFIGURL} --output /opt/chivalry/config/PCServer-UDKGame.ini
 
 ################################################################################
 ## app run
 USER root
-ENTRYPOINT /usr/local/bin/run-chivalry
+ENTRYPOINT /opt/chivalry/run
