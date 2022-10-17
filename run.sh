@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+ORIGCFG="/opt/chivalry/server/UDKGame/Config/PCServer-UDKGame.ini"
+NEWCFG="/opt/chivalry/config/PCServer-UDKGame.ini"
+
 function install-steamcmd {
     echo "steamcmd not found. Installing..."
     mkdir -p "/opt/chivalry/steamcmd"
@@ -25,17 +28,16 @@ function install-chivalry {
 # we check if chivalry is installed or need an update
 install-chivalry
 
-#[ ! -d "/opt/chivalry/config" ] && mkdir -p "/opt/chivalry/config"
-
-cd "/opt/chivalry/config"
-[ ! -L PCServer-UDKGame.ini ] && ln -s ../server/UDKGame/Config/PCServer-UDKGame.ini PCServer-UDKGame.ini
-
+if test -f "$ORIGCFG"; then
+    rm $ORIGCFG
+fi
+ln -s $NEWCFG $ORIGCFG
 
 # link the gamefile created in .local to volume one. else the downloaded maps are not accessible
 [ ! -L "/home/steam/.local/share/TornBanner/Chivalry/UDKGame" ] && mkdir -p "/home/steam/.local/share/TornBanner/Chivalry" && ln -s /opt/chivalry/server/UDKGame /home/steam/.local/share/TornBanner/Chivalry/UDKGame
 
 # use the predefined ini in order to configure the server
-cp /opt/chivalry/config/PCServer-UDKGame.ini /opt/chivalry/server/UDKGame/Config/PCServer-UDKGame.ini
+# cp /opt/chivalry/config/PCServer-UDKGame.ini /opt/chivalry/server/UDKGame/Config/PCServer-UDKGame.ini
 
 #add libraries to env
 export LD_LIBRARY_PATH=/opt/chivalry/server/linux64:/opt/chivalry/server/Binaries/Linux/lib
