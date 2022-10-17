@@ -1,6 +1,7 @@
 FROM ubuntu:xenial
 
 ENV CONFIGURL "https://raw.githubusercontent.com/apefrei/butterlan-gameserver-configs/main/chivalry/PCServer-UDKGame.ini"
+SHELL ["/bin/bash", "-c"]
 
 ################################################################################
 ## exposing 8000 and 27015 on udp
@@ -37,4 +38,4 @@ RUN curl ${CONFIGURL} --output /opt/chivalry/config/PCServer-UDKGame.ini
 ################################################################################
 ## app run
 USER root
-ENTRYPOINT /opt/chivalry/run
+ENTRYPOINT exec /opt/chivalry/run/run.sh
