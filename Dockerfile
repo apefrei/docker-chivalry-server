@@ -24,7 +24,7 @@ RUN useradd -r -m -u 1000 steam
 ################################################################################
 ## volume
 RUN mkdir -p /opt/chivalry/config \
-    mkdir -p /opt/chivalry/run \
+    && mkdir -p /opt/chivalry/run \
     && chown root -R /opt/chivalry \
     && chmod 755 -R /opt/chivalry
 
