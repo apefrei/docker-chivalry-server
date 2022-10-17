@@ -43,4 +43,4 @@ ln -s $NEWCFG $ORIGCFG
 export LD_LIBRARY_PATH=/opt/chivalry/server/linux64:/opt/chivalry/server/Binaries/Linux/lib
 cd "/opt/chivalry/server/Binaries/Linux"
 #launch
-./UDKGameServer-Linux AOCTD-Moor_P\?steamsockets\?Port=8000\?QueryPort=27015\?adminpassword=erased\?password=erased -seekfreeloadingserver
+./UDKGameServer-Linux $STARTMAP\?steamsockets\?Port=8000\?QueryPort=27015\?adminpassword=erased\?password=erased -seekfreeloadingserver
