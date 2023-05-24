@@ -26,6 +26,7 @@ RUN apt-get clean autoclean purge && \
 RUN useradd -r -m -u 1000 steam
 
 ################################################################################
+# this is comment comrade
 ## volume
 RUN mkdir -p /opt/chivalry/config \
     && mkdir -p /opt/chivalry/run
